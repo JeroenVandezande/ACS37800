@@ -11,7 +11,7 @@ struct ACS37800_t
 	// this is the ratio of RSense over RIso+RSense (e.g. 1K / (2M + 1K))
 	float VoltageDivider;
 	//points to a function to handle the SPI read/writes
-	SPI_ReadWriteMethod_t SPIFunction;
+	LL_SPIMaster_ReadWriteMethod_t SPIFunction;
 };
 
 float ACS37800_getRMSVoltage(struct ACS37800_t* instance);

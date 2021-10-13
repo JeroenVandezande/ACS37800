@@ -7,7 +7,7 @@ add_library(ACS37800 ACS37800.c ACS37800.h)
 
 # add dependencies
 include(cpm/CPM.cmake)
-CPMAddPackage("gh:JeroenVandezande/LowLevelCInterfaces@1.0.6")
+CPMAddPackage("gh:JeroenVandezande/LowLevelCInterfaces@1.2.0")
 
 target_include_directories (ACS37800 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

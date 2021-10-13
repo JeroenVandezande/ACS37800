@@ -84,9 +84,9 @@ float ACS37800_getRMSVoltage(struct ACS37800_t* instance)
 {
 	uint8_t command = (ACS37800_Registers_RMS_V_I & ADDRESS_MASK) | READ;
 	uint8_t buffer[5] = {command, 0, 0, 0, 0};
-	instance->SPIFunction(&buffer, 5 , 0);
+	instance->SPIFunction(&buffer, 5 , 0, spmMode0);
 	buffer[0] = command;
-	instance->SPIFunction(&buffer, 5 , 0); //read again because data becomes available the next read cycle
+	instance->SPIFunction(&buffer, 5 , 0, spmMode0); //read again because data becomes available the next read cycle
 	uint32_t value = (uint32_t)buffer[1];
 	value |= (uint32_t)buffer[2] << 8;
 	value |= (uint32_t)buffer[3] << 16;
@@ -104,9 +104,9 @@ float ACS37800_getRMSPower(struct ACS37800_t* instance)
 {
 	uint8_t command = (ACS37800_Registers_RMS_P & ADDRESS_MASK) | READ;
 	uint8_t buffer[5] = {command, 0, 0, 0, 0};
-	instance->SPIFunction(&buffer, 5 , 0);
+	instance->SPIFunction(&buffer, 5 , 0, spmMode0);
 	buffer[0] = command;
-	instance->SPIFunction(&buffer, 5 , 0); //read again because data becomes available the next read cycle
+	instance->SPIFunction(&buffer, 5 , 0, spmMode0); //read again because data becomes available the next read cycle
 	uint32_t value = (uint32_t)buffer[1];
 	value |= (uint32_t)buffer[2] << 8;
 	value |= (uint32_t)buffer[3] << 16;
